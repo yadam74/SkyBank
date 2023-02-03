@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="accountRepository" class="com.revature.repository.AccountRepository">
+
+    </bean>
+
+    <bean id="accountService" class="com.revature.service.AccountService">
+        <constructor-arg ref="accountRepository"/>
+    </bean>
+
+    <bean id="accountController" class="com.revature.controller.AccountController">
+        <constructor-arg ref="accountService"/>
+    </bean>
+
+    <bean id="transactionRepository" class="com.revature.repository.TransactionRepository">
+
+    </bean>
+
+    <bean id="transactionService" class="com.revature.service.TransactionService">
+        <constructor-arg ref="transactionRepository"/>
+    </bean>
+
+    <bean id="transactionController" class="com.revature.controller.TransactionController">
+        <constructor-arg ref="transactionService"/>
+    </bean>
+
+    <bean id="userRepository" class="com.revature.repository.UserRepository">
+
+    </bean>
+
+    <bean id="authService" class="com.revature.service.AuthService">
+        <constructor-arg ref="userRepository"/>
+    </bean>
+
+    <bean id="authController" class="com.revature.controller.AuthController">
+        <constructor-arg ref="authService"/>
+    </bean>
+
+
+    <bean id="account" class="com.revature.model.Account" scope="prototype">
+
+    </bean>
+
+    <bean id="accountType" class="com.revature.model.AccountType" scope="prototype">
+
+    </bean>
+
+    <bean id="transaction" class="com.revature.model.Transaction" scope="prototype">
+
+    </bean>
+
+    <bean id="transfer" class="com.revature.model.Transfer" scope="prototype">
+
+    </bean>
+
+    <bean id="user" class="com.revature.model.User" scope="prototype">
+
+    </bean>
+
+    <!-- more bean definitions go here -->
+
+</beans>
